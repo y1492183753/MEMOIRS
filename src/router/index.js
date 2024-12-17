@@ -1,19 +1,46 @@
+/* eslint-disable no-unused-vars */
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Home from '../views/Home.vue'
+import Affection from '@/views/Affection.vue'
+import Friendship from '@/views/Friendship.vue'
+import Love from '@/views/Love.vue'
+import Scenery from '@/views/Scenery.vue'
+import NotFound from '@/components/NotFound.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: Home
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/affection',
+    name: 'affection',
+    // lazy-router
+    component: () => import(/* webpackChunkName: "about" */ '../views/Affection.vue')
+  },
+  {
+    path: '/friendship',
+    name: 'friendship',
+    // lazy-router
+    component: () => import(/* webpackChunkName: "about" */ '../views/Friendship.vue')
+  },
+  {
+    path: '/love',
+    name: 'Love',
+    // lazy-router
+    component: () => import(/* webpackChunkName: "about" */ '../views/Love.vue')
+  },
+  {
+    path: '/scenery',
+    name: 'scenery',
+    // lazy-router
+    component: () => import(/* webpackChunkName: "about" */ '../views/Scenery.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
   }
 ]
 
